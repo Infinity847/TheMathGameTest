@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>New math quiz GAME</title>
+        <style>
+body {
+    text-align:center;
+}
+        </style>
+    </head>
+
+    <body>
+<h1>MATH QUIZ GAME</h1>
+<br>
+<span>
+    <h4 id = "p1">-- </h4>  
+    <h4 id = "p2"> --</h4>
+</span>
+<br>
+<br>
+<br>
+<br>
+<h4 id = "page">
+This is the page part. I will use this h4 tag to make it display stuff.
+</h4>
+<script>
+    var A = 0;
+    var p1score = 0;
+    var p2score = 0;
+    document.getElementById("page").innerHTML = "<h4>Player 1, it is your question turn</h4><br><br><input id = 'number1'><h4>Number 1</h4><br><input id = 'number2'><h4>Number 2</h4><br><br><button onclick = 'send()' class = 'btn btn-success'>Send numbers</button>";
+var number1 = 0;
+var number2 = 0;
+var correctAwnser = 0;
+    var correctAwnser = 0;
+var player1 = localStorage.getItem("p1");
+var player2 = localStorage.getItem("p2");
+var questionTurn = player1;
+var awnserTurn = player2;
+document.getElementById("p1").innerHTML = player1 + ":" + p1score;
+document.getElementById("p2").innerHTML = player2 + ":" + p2score;
+function switchTurn() {
+    if (questionTurn = player1) {
+        questionTurn = player2;
+   
+    }else {
+        questionTurn=player1;
+        
+    }
+    if (awnserTurn = player1) {
+        awnserTurn = player2;
+    }else {
+        awnserTurn = player1;
+    }
+}
+function send() {
+    
+    number1 = document.getElementById("number1").value;
+    number2 = document.getElementById("number2").value;
+    correctAwnser = parseInt(number1) * parseInt(number2)
+    if (awnserTurn == player2) {
+        document.getElementById("page").innerHTML = "<h4>Player 2, it is your awnser turn</h4><br><br><h4>Question :" + number1 + " X " + number2 + 
+        "</h4><br><br><span><input id = 'awnser'><button onclick = 'SubmitAwnser()' class = 'btn btn-success'>Submit awnser</button></span>";
+    }else {
+        document.getElementById("page").innerHTML = "<h4>Player 1, it is your awnser turn</h4><br><br><h4>Question :" + number1 + " X " + number2 + 
+        "</h4><br><br><span><input id = 'awnser'><button onclick = 'SubmitAwnser()' class = 'btn btn-success'>Submit awnser</button></span>";
+    }
+    
+
+    
+}
+function SubmitAwnser() {
+    A = document.getElementById("awnser").value;
+  if (awnserTurn == player1) {
+p1score = p1score + 1;
+document.getElementById("p1").innerHTML = player1 + ":" + p1score;
+
+  }else {
+    p2score = p2score + 1;
+
+document.getElementById("p2").innerHTML = player2 + ":" + p2score;
+  }
+    switchTurn();
+}
+function switchTurn() {
+    if (questionTurn == player1) {
+        document.getElementById("page").innerHTML = "<h4>Player 1, it is your question turn</h4><br><br><input id = 'number1'><h4>Number 1</h4><br><input id = 'number2'><h4>Number 2</h4><br><br><button onclick = 'send()' class = 'btn btn-success'>Send numbers</button>";
+    }else {
+        document.getElementById("page").innerHTML = "<h4>Player 2, it is your question turn</h4><br><br><input id = 'number1'><h4>Number 1</h4><br><input id = 'number2'><h4>Number 2</h4><br><br><button onclick = 'send()' class = 'btn btn-success'>Send numbers</button>";
+    }
+}
+</script>
+    </body>
+</html>

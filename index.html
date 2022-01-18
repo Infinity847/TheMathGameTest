@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <style>
+      body {
+          background-color:aqua;
+          text-align:center;
+      }
+  </style>
+
+    </head>
+    <body>
+<h1>MATH GAME</h1>
+<br>
+<h5>The ultamite math comparison with you and MATH</h5>
+<br>
+<br>
+<span>
+<h3>Player 1's name</h3><input type = "text" id = "P1" class = "btn btn info">
+    </span>
+    <br>
+    <br>
+    <span>
+        <h3>Player 2's name</h3><input type = "text" id = "P2" class = "btn btn info">
+            </span>
+<br>
+<br>
+<button onclick = "S()" id = "SUBMIT" class = "btn btn-info">SUBMIT</button>
+<br>
+
+            <script>
+function S() { 
+var P1 = document.getElementById("P1").value;
+var P2 = document.getElementById("P2").value;
+localStorage.setItem("p1", P1);
+localStorage.setItem("p2", P2);
+window.location = 'mathgame.html';
+
+}
+                </script>
+    </body>
+</html>
